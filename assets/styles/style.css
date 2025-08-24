@@ -1,0 +1,40 @@
+body {
+
+}
+.logo-header {
+    width: 350px;        /* taille du logo */
+    height: auto;
+    display: block;
+    margin: 0 auto;      /* centre le logo */
+}
+.uk-navbar-container {
+
+}
+
+header {
+
+}
+
+header a {
+
+}
+
+.header-logo img {
+
+}
+
+header nav a:hover {
+
+}
+
+main {
+
+}
+
+
+
+footer {
+    padding: 1.5rem 0;
+    text-align: center;
+    background-color: white;
+}

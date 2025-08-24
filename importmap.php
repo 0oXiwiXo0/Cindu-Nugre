@@ -25,4 +25,11 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'uikit' => [
+        'version' => '3.23.12',
+    ],
+    'uikit/dist/css/uikit.min.css' => [
+        'version' => '3.23.12',
+        'type' => 'css',
+    ],
 ];
