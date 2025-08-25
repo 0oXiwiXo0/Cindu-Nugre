@@ -26,4 +26,10 @@ final class MainController extends AbstractController
         return $this->render('main/contact.html.twig');
     }
 
+
+    #[Route('/portfolio', name: 'main_portfolio')]
+    public function portfolio(): Response
+    {
+        return $this->render('main/portfolio.html.twig');
+    }
 }
