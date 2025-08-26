@@ -1,40 +1,28 @@
-body {
 
-}
 .logo-header {
     width: 350px;        /* taille du logo */
     height: auto;
     display: block;
     margin: 0 auto;      /* centre le logo */
 }
-.uk-navbar-container {
-
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-header {
-
+.page-container {
+    min-height: 100vh;       /* occupe toute la hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column;  /* empile header, main et footer */
 }
 
-header a {
-
+.content {
+    flex: 1;                 /* prend tout l’espace disponible */
 }
 
-.header-logo img {
-
-}
-
-header nav a:hover {
-
-}
-
-main {
-
-}
-
-
-
-footer {
-    padding: 1.5rem 0;
+.footer {
+    /*background: #222;
+    color: #fff;*/
+    padding: 15px;
     text-align: center;
-    background-color: white;
 }
