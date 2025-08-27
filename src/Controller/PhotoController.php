@@ -15,7 +15,7 @@ final class PhotoController extends AbstractController
     {
         $nbPerPage = $parameters->get('photo')['nb_max'];
         $offset = ($page - 1) * $nbPerPage;
-        $photos = $photoRepository->findBy([], null, $nbPerPage, $offset);
+        $photos = $photoRepository->findBy([], ['id' => 'ASC'],null, $nbPerPage, $offset);
         $total = $photoRepository->count([]);
         $totalPages = ceil($total / $nbPerPage);
 

@@ -19,6 +19,9 @@ class Photo
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $poster = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,4 +50,17 @@ class Photo
 
         return $this;
     }
+
+    public function getPoster(): ?string
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?string $poster): static
+    {
+        $this->poster = $poster;
+
+        return $this;
+    }
+
 }

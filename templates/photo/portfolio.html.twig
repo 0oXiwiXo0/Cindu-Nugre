@@ -4,4 +4,29 @@
 
 {% block body %}
     <h5>Portfolio</h5>
+
+<section>
+    {% if page > 1 %}
+        <a href="{{ path('photo_portfolio', {'page' : page - 1}) }}">Page précédente</a>&nbsp;
+    {% endif %}
+    {% if page < total_pages %}
+        <a href="{{ path('photo_portfolio', {'page' : page + 1}) }}">Page suivante</a>
+    {% endif %}
+</section>
+
+    <section class="photo-list">
+        {% for photo in photos %}
+            {% if photo.poster %}
+                <img src="{{ asset('uploads/posters/' ~ photo.poster) }}" alt="" width="150">
+            {% else %}
+                <p>Aucune image disponible</p>
+            {% endif %}
+        {% else %}
+            <p>Aucune photo trouvée.</p>
+        {% endfor %}
+    </section>
+
+<a href="{{ path('main_home') }}" class="btn">Retour</a>
+
 {% endblock %}
+
