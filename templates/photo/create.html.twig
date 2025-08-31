@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block title %}Ajout de photo | {{ parent() }}{% endblock %}
 {% block body %}
     {% if photoForm.vars.value.id == null %}
         <h2>Ajouter une photo !</h2>
@@ -11,8 +12,10 @@
     {{ form_row(photoForm.author) }}
     {{ form_row(photoForm.isPublished) }}
     {{ form_row(photoForm.category) }}
+    {{ form_row(photoForm.dateCreated) }}
+    {{ form_row(photoForm.dateUpdated) }}
+    {{ form_row(photoForm.poster_file) }}
 
-    <button class="btn btn-sm btn-primary">{{ photoForm.vars.value.id == null ? 'Créer' : 'Modify' }}</button>
+    <button class="btn btn-sm btn-primary">{{ photoForm.vars.value.id == null ? 'Créer' : 'Modifier' }}</button>
     {{ form_end(photoForm) }}
 {% endblock %}
-{% block title %}Add your photoes | {{ parent() }}{% endblock %}

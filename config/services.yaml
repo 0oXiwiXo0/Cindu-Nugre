@@ -6,6 +6,7 @@
 parameters:
     photo:
         nb_max: 16
+        poster_directory: 'uploads/posters'
 services:
     # default configuration for services in *this* file
     _defaults:

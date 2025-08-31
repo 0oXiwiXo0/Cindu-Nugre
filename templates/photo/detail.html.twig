@@ -11,9 +11,10 @@
         {# le filtre nl2br convertit les sauts de ligne du texte en balises
 <br> #}
         <p class="card-text">{{ photo.description|nl2br }}</p>
+        <img src="{{ asset('uploads/posters/' ~ photo.poster) }}" alt="{{ photo.title }}" class="img-fluid">
     </div>
     <div class="text-center">
-        <a href="{{ path('photo_delete', {'id': photo.id, 'token': csrf_token('delete'~photo.id)}) }}" class="btn btn-danger mt-2" title="Supprimer la photo"> Supprimer </a>
+        <a href="{{ path('photo_delete', {'id': photo.id, 'token': csrf_token('delete'~photo.id)}) }}" class="btn btn-danger mt-2" onclick="return confirm('Etes vous sûr ?')">Supprimer cette photo</a>
         <a href="{{ path('photo_update', {'id': photo.id}) }}" class="btn btn-secondary mt-2" title="Modifier la photo"> Modifier </a>
     </div>
 

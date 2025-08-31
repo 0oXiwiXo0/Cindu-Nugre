@@ -33,20 +33,21 @@
         {% block body %}{% endblock %}
     </main>
 
-    {%  for type, messages in app.flashes %}
+    {%  for label, messages in app.flashes %}
         {%  for message in messages %}
-            <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
-            {#  <div class="alert alert-{{ type }}"> #}
-                {{ message }}
+            <div class="alert alert-{{ label }} alert-dismissible fade show" role="alert"> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
             </div>
         {% endfor %}
     {% endfor %}
+</div>
+{#  <input type="button" value="page précédente" onclick="javascript:history.back()"> #}
 
     <footer class="footer">
         <div class="container">
             &copy; Cindy Nugre {{ "now"|date("Y") }}
         </div>
     </footer>
-</div>
+
 </body>
 </html>

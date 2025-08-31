@@ -48,6 +48,9 @@ class Photo
     #[Assert\NotNull]
     private ?Category $category = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $poster = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -133,6 +136,18 @@ class Photo
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPoster(): ?string
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(string $poster): static
+    {
+        $this->poster = $poster;
 
         return $this;
     }
