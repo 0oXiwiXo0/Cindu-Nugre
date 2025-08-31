@@ -72,3 +72,35 @@ html, body {
 .card-img-container:hover .overlay {
     opacity: 1;
 }
+/* Rendre la navbar légèrement grisée */
+.container-fluid {
+    background-color: rgba(0, 0, 0, 0.03); /* gris clair */
+    padding: 10px 20px;
+}
+
+/* Espacer un peu plus les liens */
+.container-fluid .navbar-brand {
+    margin-right: 25px; /* espace entre les liens */
+    text-decoration: none;
+    position: relative;
+    color: black;
+    padding: 5px 0;
+}
+
+/* Ligne noire animée au survol */
+.container-fluid .navbar-brand::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;            /* épaisseur du soulignement */
+    background-color: black;
+    transition: width 0.3s ease;
+}
+
+.container-fluid .navbar-brand:hover::after {
+    width: 100%;
+}
+
+

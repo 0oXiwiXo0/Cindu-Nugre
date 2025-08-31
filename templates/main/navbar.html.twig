@@ -4,12 +4,51 @@
         <a class="navbar-brand" href="{{ path('main_apropos') }}" title="Go back to aPropos">À propos</a>
         <a class="navbar-brand" href="{{ path('photo_list') }}" title="Liste des photos">Portfolio</a>
         <a class="navbar-brand" href="{{ path('main_contact') }}" title="Contact">Contact</a>
-            {% if is_granted('ROLE_ADMIN') %}
-        <a class="navbar-brand" href="{{ path('photo_create') }}" title="Ajouter une photo">Ajouter une photo</a>
-            {% endif %}
-        <a class="navbar-brand" href="{{ path('app_login') }}" title="Accès à la page connexion">Connexion</a>
-            {% if is_granted('ROLE_ADMIN') %}
-        <a class="navbar-brand" href="{{ path('app_logout') }}" title="Accès à la page déconnexion">Déconnexion</a>
-            {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="navbar-brand" href="{{ path('photo_create') }}" title="Ajouter une photo">Ajouter une photo</a>
+        {% endif %}
+    </div>
+
+    <div class ="d-flex gap-3 ms-auto">
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a class="navbar-brand" href="{{ path('app_login') }}" title="Accès à la page connexion">Connexion</a>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="navbar-brand" href="{{ path('app_logout') }}" title="Accès à la page déconnexion">Déconnexion</a>
+        {% endif %}
     </div>
 </div>
+
+{#
+<nav class="container-fluid">
+    <!-- Bouton hamburger pour petits écrans -->
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Contenu de la navbar -->
+    <div class="collapse d-lg-flex w-100" id="navbarContent">
+        <!-- Liens à gauche -->
+        <div class="d-flex gap-2 flex-column flex-lg-row">
+            <a class="navbar-brand" href="{{ path('main_home') }}" title="Go back to homepage">Accueil</a>
+            <a class="navbar-brand" href="{{ path('main_apropos') }}" title="Go back to aPropos">À propos</a>
+            <a class="navbar-brand" href="{{ path('photo_list') }}" title="Liste des photos">Portfolio</a>
+            <a class="navbar-brand" href="{{ path('main_contact') }}" title="Contact">Contact</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="navbar-brand" href="{{ path('photo_create') }}" title="Ajouter une photo">Ajouter une photo</a>
+            {% endif %}
+        </div>
+
+        <!-- Liens à droite -->
+        <div class="d-flex gap-3 ms-auto flex-column flex-lg-row mt-2 mt-lg-0">
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a class="navbar-brand" href="{{ path('app_login') }}" title="Accès à la page connexion">Connexion</a>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="navbar-brand" href="{{ path('app_logout') }}" title="Accès à la page déconnexion">Déconnexion</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+#}
