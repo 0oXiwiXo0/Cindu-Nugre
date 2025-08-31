@@ -52,7 +52,4 @@ class PhotoRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
-
-
 }

@@ -8,10 +8,10 @@
         <h5 class="card-title">{{ photo.title }}</h5>
         <p class="card-text">[{{ photo.category.name ?? 'Sans catégorie' }}]</p>
         <p class="wish-credit">Created by {{ photo.author }} on {{ photo.dateCreated|date('d/m/Y') }}</p>
-        {# le filtre nl2br convertit les sauts de ligne du texte en balises
-<br> #}
+        {# le filtre nl2br convertit les sauts de ligne du texte en balises <br> #}
         <p class="card-text">{{ photo.description|nl2br }}</p>
         <img src="{{ asset('uploads/posters/' ~ photo.poster) }}" alt="{{ photo.title }}" class="img-fluid">
+
     </div>
     <div class="text-center">
         <a href="{{ path('photo_delete', {'id': photo.id, 'token': csrf_token('delete'~photo.id)}) }}" class="btn btn-danger mt-2" onclick="return confirm('Etes vous sûr ?')">Supprimer cette photo</a>
@@ -20,3 +20,5 @@
 
 </div>
 {% endblock %}
+
+
