@@ -1,18 +1,9 @@
-<nav class="uk-navbar-container">
-    <div class="uk-container">
-        <div uk-navbar="mode: click">
-
-            <div class="uk-navbar-left">
-
-                <ul class="uk-navbar-nav">
-                    <li><a class="uk-active" href="{{ path('main_home') }}" title="Go back to homepage">Home</a></li>
-                    <li><a class="uk-active" href="{{ path('photo_portfolio') }}" title="Go back to portfolio">Portfolio</a></li>
-                    <li><a class="uk-active" href="{{ path('main_aPropos') }}" title="Go back to aPropos">À propos</a></li>
-                    <li><a class="uk-active" href="{{ path('main_contact') }}" title="Go back to contact">Contact</a></li>
-                </ul>
-
-            </div>
-
-        </div>
+<div class="container-fluid d-flex w-100">
+    <div class="d-flex gap-2">
+        <a class="navbar-brand" href="{{ path('main_home') }}" title="Go back to homepage">Home</a>
+        <a class="navbar-brand" href="{{ path('main_apropos') }}" title="Go back to aPropos">À propos</a>
+        <a class="navbar-brand" href="{{ path('photo_list') }}" title="Liste des photos">Liste</a>
+        <a class="navbar-brand" href="{{ path('main_contact') }}" title="Contact">Contact</a>
+        <a class="navbar-brand" href="{{ path('photo_create') }}" title="Ajouter une photo">Ajouter une photo</a>
     </div>
-</nav>
+</div>

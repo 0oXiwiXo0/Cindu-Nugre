@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cindy Nugre - Portfolio{% endblock %}
+
+{% block body %}
+    <h2>List</h2>
+    <ul>
+        {% for photo in photos %}
+            <li>
+                <a href="{{ path('photo_detail', {id: photo.id}) }}"
+                   title="View this photo in details">
+                    {{ photo.title }} [{{ photo.category.name }}]
+                </a>
+                <small>(publié le {{ photo.dateCreated|date('d/m/Y') }})</small>
+            </li>
+        {% else %}
+            <li>Aucune photo trouvée.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

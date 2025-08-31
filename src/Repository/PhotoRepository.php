@@ -40,4 +40,19 @@ class PhotoRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+    public function findPublishedPhotosWithCategories(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.category', 'c')
+            ->addSelect('c')
+            ->andWhere('p.isPublished = 1')
+            ->orderBy('p.dateCreated', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
 }

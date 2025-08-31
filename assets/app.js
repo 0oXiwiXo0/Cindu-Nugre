@@ -5,9 +5,7 @@ import './bootstrap.js';
  * This file will be included onto the page via the importmap() Twig function,
  * which should already be in your base.html.twig.
  */
-
-import './vendor/uikit/dist/css/uikit.min.css'
-import './vendor/uikit/uikit.index.js'
+import './vendor/bootstrap/dist/css/bootstrap.min.css'
 import './styles/app.css';
 import './styles/style.css';
 

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} | Portfolio {% endblock %}
+
+{% block body %}
+<div class="card mt-2 mb-2 w-50 m-auto">
+    <div class="card-body">
+        <h5 class="card-title">{{ photo.title }}</h5>
+        <p class="card-text">[{{ photo.category.name ?? 'Sans catégorie' }}]</p>
+        <p class="wish-credit">Created by {{ photo.author }} on {{ photo.dateCreated|date('d/m/Y') }}</p>
+        {# le filtre nl2br convertit les sauts de ligne du texte en balises
+<br> #}
+        <p class="card-text">{{ photo.description|nl2br }}</p>
+    </div>
+    <div class="text-center">
+        <a href="{{ path('photo_delete', {'id': photo.id, 'token': csrf_token('delete'~photo.id)}) }}" class="btn btn-danger mt-2" title="Supprimer la photo"> Supprimer </a>
+        <a href="{{ path('photo_update', {'id': photo.id}) }}" class="btn btn-secondary mt-2" title="Modifier la photo"> Modifier </a>
+    </div>
+
+</div>
+{% endblock %}
