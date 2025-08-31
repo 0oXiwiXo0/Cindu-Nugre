@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/photo', name: 'photo_')]
@@ -42,6 +43,7 @@ final class PhotoController extends AbstractController
     }
 
     #[Route('/create', name: 'create', methods: ['GET','POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request,
                            EntityManagerInterface $em,
                            SluggerInterface $slugger,
@@ -88,8 +90,8 @@ final class PhotoController extends AbstractController
             'photo' => $photo,
         ]);
     }
-    #[Route('/{id}/update', name: 'update', requirements: ['id'=>'\d+'],
-        methods: ['GET','POST'])]
+    #[Route('/{id}/update', name: 'update', requirements: ['id'=>'\d+'], methods: ['GET','POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function update(
         int $id,
         Request $request,
@@ -142,6 +144,7 @@ final class PhotoController extends AbstractController
     }
 
     #[Route('/{id}/delete', name: 'delete', requirements: ['id'=>'\d+'], methods: ['GET'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(int $id,
                            PhotoRepository $photoRepository,
                            Request $request,
