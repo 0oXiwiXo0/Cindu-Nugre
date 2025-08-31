@@ -4,9 +4,12 @@
         <a class="navbar-brand" href="{{ path('main_apropos') }}" title="Go back to aPropos">À propos</a>
         <a class="navbar-brand" href="{{ path('photo_list') }}" title="Liste des photos">Portfolio</a>
         <a class="navbar-brand" href="{{ path('main_contact') }}" title="Contact">Contact</a>
-            {% if is_granted('IS_ADMIN') %}
+            {% if is_granted('ROLE_ADMIN') %}
         <a class="navbar-brand" href="{{ path('photo_create') }}" title="Ajouter une photo">Ajouter une photo</a>
             {% endif %}
         <a class="navbar-brand" href="{{ path('app_login') }}" title="Accès à la page connexion">Connexion</a>
+            {% if is_granted('ROLE_ADMIN') %}
+        <a class="navbar-brand" href="{{ path('app_logout') }}" title="Accès à la page déconnexion">Déconnexion</a>
+            {% endif %}
     </div>
 </div>
