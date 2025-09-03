@@ -1,9 +1,16 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --light-bg: #f8f9fa;
+    --dark: #000;
+}
+
 /* Logo */
 .logo-header {
-    width: 350px;        /* taille du logo */
+    width: 350px;
     height: auto;
     display: block;
-    margin: 0 auto;      /* centre le logo */
+    margin: 0 auto;
 }
 
 /* Structure générale */
@@ -13,28 +20,27 @@ html, body {
 }
 
 .page-container {
-    min-height: 100vh;       /* occupe toute la hauteur de la fenêtre */
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;  /* empile header, main et footer */
+    flex-direction: column;
 }
 
 .content {
-    flex: 1;                 /* prend tout l’espace disponible */
+    flex: 1;
 }
 
 .footer {
-    margin-top: auto; /* pousse le footer tout en bas */
+    margin-top: auto;
     padding: 1rem 0;
-    background-color: #f8f9fa; /* couleur claire */
+    background-color: var(--light-bg);
     text-align: center;
 }
 
-/* Page list.html.twig */
-/* Effet hover et overlay */
+/* Effets hover et overlay */
 .portfolio-card {
-    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .portfolio-card:hover {
@@ -48,10 +54,10 @@ html, body {
 }
 
 .card-img-container img {
-    transition: transform 0.3s;
     width: 100%;
     height: 250px;
     object-fit: cover;
+    transition: all 0.3s ease;
 }
 
 .card-img-container:hover img {
@@ -61,41 +67,37 @@ html, body {
 .overlay {
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
-    transition: opacity 0.3s;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    transition: all 0.3s ease;
 }
 
 .card-img-container:hover .overlay {
     opacity: 1;
 }
-/* Rendre la navbar légèrement grisée */
+
+/* Navbar */
 .container-fluid {
-    background-color: rgba(0, 0, 0, 0.03); /* gris clair */
+    background-color: rgba(0, 0, 0, 0.03);
     padding: 10px 20px;
 }
 
-/* Espacer un peu plus les liens */
 .container-fluid .navbar-brand {
-    margin-right: 25px; /* espace entre les liens */
+    margin-right: 25px;
     text-decoration: none;
     position: relative;
     color: black;
     padding: 5px 0;
 }
 
-/* Ligne noire animée au survol */
 .container-fluid .navbar-brand::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: 0;
     width: 0;
-    height: 2px;            /* épaisseur du soulignement */
-    background-color: black;
+    height: 2px;
+    background-color: var(--dark);
     transition: width 0.3s ease;
 }
 
@@ -103,14 +105,14 @@ html, body {
     width: 100%;
 }
 
-/* Container global pour centrer le formulaire */
+/* Formulaire */
 .form-container {
-    max-width: 700px;         /* largeur max du bloc */
-    margin: 40px auto;        /* marges auto pour centrer */
-    padding: 20px;
+    max-width: 700px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
 }
 
-/* Titre du formulaire */
 .form-title {
     text-align: center;
     margin-bottom: 20px;
@@ -118,37 +120,43 @@ html, body {
     font-weight: bold;
 }
 
-/* Carte contenant le formulaire */
 .form-card {
     background: #fff;
-    padding: 25px 30px;
+    padding: 1.5rem 2rem;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* Espacement entre les champs */
-.form-card .form-group {
+.form-card label,
+.form-card input,
+.form-card textarea,
+.form-card select {
+    display: block;
+    width: 100%;
     margin-bottom: 15px;
 }
 
-/* Bouton dans le style cohérent */
+/* Bouton */
 .btn-submit {
     display: block;
     margin: 20px auto 0;
     padding: 10px 25px;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
 }
 
 .btn-submit:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    background-color: #0056b3;
+    background-color: var(--primary-hover);
 }
 
-
+.btn-submit:focus {
+    outline: 3px solid rgba(0,123,255,0.5);
+    outline-offset: 2px;
+}

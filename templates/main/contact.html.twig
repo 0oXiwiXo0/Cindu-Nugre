@@ -3,5 +3,20 @@
 {% block title %}Contact | {{ parent() }} !{% endblock %}
 
 {% block body %}
-    <h8>Ceci est la page de contact</h8>
+    <div class="form-container">
+        <h2 class="form-title">Formulaire de contact</h2>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+        <div class="form-card">
+            {{ form_start(contactForm) }}
+            {{ form_row(contactForm.name) }}
+            {{ form_row(contactForm.email) }}
+            {{ form_row(contactForm.message) }}
+            <button class="btn-submit">Envoyer</button>
+            {{ form_end(contactForm) }}
+        </div>
+    </div>
 {% endblock %}
