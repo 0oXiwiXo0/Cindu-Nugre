@@ -1,21 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block title %}Ajout de photo | {{ parent() }}{% endblock %}
-{% block body %}
-    {% if photoForm.vars.value.id == null %}
-        <h2>Ajouter une photo !</h2>
-    {% else %}
-        <h2>Mettez à jour votre photo</h2>
-    {% endif %}
-    {{ form_start(photoForm) }}
-    {{ form_row(photoForm.title) }}
-    {{ form_row(photoForm.description) }}
-    {{ form_row(photoForm.author) }}
-    {{ form_row(photoForm.isPublished) }}
-    {{ form_row(photoForm.category) }}
-    {{ form_row(photoForm.dateCreated) }}
-    {{ form_row(photoForm.dateUpdated) }}
-    {{ form_row(photoForm.poster_file) }}
 
-    <button class="btn btn-sm btn-primary">{{ photoForm.vars.value.id == null ? 'Créer' : 'Modifier' }}</button>
-    {{ form_end(photoForm) }}
+{% block body %}
+    <div class="form-container">
+        {% if photoForm.vars.value.id == null %}
+            <h2 class="form-title">Ajouter une photo</h2>
+        {% else %}
+            <h2 class="form-title">Mettez à jour votre photo</h2>
+        {% endif %}
+
+        <div class="form-card">
+            {{ form_start(photoForm) }}
+            {{ form_row(photoForm.title) }}
+            {{ form_row(photoForm.description) }}
+            {{ form_row(photoForm.author) }}
+            {{ form_row(photoForm.isPublished) }}
+            {{ form_row(photoForm.category) }}
+            {{ form_row(photoForm.dateCreated) }}
+            {{ form_row(photoForm.dateUpdated) }}
+            {{ form_row(photoForm.poster_file) }}
+
+            <button class="btn-submit">
+                {{ photoForm.vars.value.id == null ? 'Créer' : 'Modifier' }}
+            </button>
+            {{ form_end(photoForm) }}
+        </div>
+    </div>
 {% endblock %}
