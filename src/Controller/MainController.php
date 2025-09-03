@@ -17,13 +17,13 @@ final class MainController extends AbstractController
         return $this->render('main/home.html.twig');
     }
 
-    #[Route('apropos', name: 'apropos', methods: ['GET'])]
+    #[Route('/apropos', name: 'apropos', methods: ['GET'])]
     public function apropos(): Response
     {
         return $this->render('main/aPropos.html.twig');
     }
 
-    #[Route('contact', name: 'contact', methods: ['GET'])]
+    #[Route('/contact', name: 'contact', methods: ['GET', 'POST'])]
     public function contact(Request $request): Response
     {
         $form = $this->createForm(ContactType::class);
@@ -36,7 +36,7 @@ final class MainController extends AbstractController
             // Pour l'instant on affiche juste un flash message
             $this->addFlash('success', 'Merci ' . $data['name'] . ', votre message a bien été envoyé !');
 
-            return $this->redirectToRoute('contact');
+            return $this->redirectToRoute('main_contact');
         }
 
         return $this->render('main/contact.html.twig', [
